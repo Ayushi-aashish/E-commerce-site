@@ -9,7 +9,7 @@
     "server": "nodemon backend/server.js",
     "client": "npm start --prefix frontent",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-     "data:import": "node backend/seeder.js",
+    "data:import": "node backend/seeder.js",
     "data:destroy": "node backend/seeder.js -d"
   },
   "author": "Ayushi",
@@ -22,6 +22,8 @@
     "bcryptjs": "^3.0.2",
     "colors": "^1.4.0",
     "dotenv": "^17.2.0",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.16.4"
   }
 }
