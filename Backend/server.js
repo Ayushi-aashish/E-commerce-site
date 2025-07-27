@@ -5,6 +5,7 @@ import colors from 'colors';
 import {errorHandler, notFound} from './middleware/errorMiddleware.js';
 import productRoutes from './Routes/productRoutes.js';
 import userRoutes from './Routes/userRoutes.js';
+import orderRoutes from './Routes/orderRoutes.js';
 dotenv.config();
 connectDB(); 
  
@@ -25,6 +26,11 @@ app.use('/api/products', productRoutes);
 
 // First, define routes
 app.use('/api/users', userRoutes);
+app.use('/api/orders',orderRoutes);
+app.get('/api/config/paypal',(req,res)=>
+     res.send(process.env.PAYPAL_CLIENT_ID)
+)
+
 
 app.use(notFound);  // Then error middlewares
 app.use(errorHandler);

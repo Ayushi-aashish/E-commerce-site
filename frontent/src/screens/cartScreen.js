@@ -31,6 +31,7 @@ const CartScreen = () => {
     }
     const checkoutHandler = () => {
         navigate('/login?redirect=shipping');
+        // navigate('/shipping'); // Redirect to shipping screen
     }
     return (<Row>
         <Col md={8}>

@@ -97,6 +97,10 @@ const loginUser = asyncHandler(async (req, res) => {
     throw new Error('Invalid email or password');
   }
 });*/
+const getUsers=asyncHandler(async(req,res)=>{
+  const users=await User.find({});
+  res.json(users)
+})
 
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
@@ -142,6 +146,6 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   
 );
 
-export { authUser, getUserProfile, registerUser, updateUserProfile, loginUser };
+export { authUser, getUserProfile, registerUser, updateUserProfile, loginUser ,getUsers};
 
 
