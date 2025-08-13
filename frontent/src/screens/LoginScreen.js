@@ -15,17 +15,17 @@ const LoginScreen = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const userLogin = useSelector((state) => state.userLogin);
-    const { loading, error, userInfo } = userLogin;
-    const location = useLocation();
-    const redirect = location.search ? location.search.split('=')[1] : '/';
+    const userLogin = useSelector((state) => state.userLogin || {});
+const { loading, error, userInfo } = userLogin;
+   const location = useLocation();
+  const redirect = new URLSearchParams(location.search).get('redirect') || '';
 
 useEffect(() => {
   if (userInfo) {
-    navigate(`/${redirect}`);
+    const targetPath = redirect ? `/${redirect}` : '/dashboard'; // fallback path
+    navigate(targetPath);
   }
 }, [navigate, userInfo, redirect]);
-
 
  
     const submitHandler = (e) => {

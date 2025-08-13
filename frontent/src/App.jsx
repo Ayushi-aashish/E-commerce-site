@@ -12,6 +12,8 @@ import ShippingScreen from './screens/ShippingScreen';
 import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen.js';
 import OrderScreen from './screens/orderScreen.js';
+import UserListScreen from './screens/UserListScreen.js';
+import UserEditScreen from './screens/UserEditScreen.js';
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 
@@ -46,6 +48,9 @@ console.log("PayPal Client ID:", clientId);
             <Route path='/' element={<HomeScreen />} exact />
             <Route path='/product/:id' element={<ProductScreen />} />
             <Route path='/cart/:id?' element={<CartScreen />} />
+            <Route path='/admin/userlist' element={<UserListScreen/>} />
+            <Route path='/admin/user/:id/edit' element={<UserEditScreen />} />
+
           </Routes>
         </Container>
       </main>

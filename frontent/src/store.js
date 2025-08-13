@@ -1,20 +1,26 @@
 import {legacy_createStore, combineReducers, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
-import {productListReducer, productDetailsReducer, } from './reducers/productReducers.js';
+import {productListReducer, productDetailsReducer,productUpdateReducer } from './reducers/productReducers.js';
 import { cartReducer } from './reducers/cartReducers.js';
-import { userLoginReducer ,userRegisterReducer} from './reducers/userReducer.js';
+import {userLoginReducer ,userRegisterReducer, userUpdateProfileReducer,userListReducer,userUpdateReducer ,userDeleteReducer, userDetailsReducer} from './reducers/userReducer.js';
 import { orderCreateReducer,orderDetailsReducer,orderPayReducer } from './reducers/orderReducers.js';
-
 const reducer = combineReducers({
     productList: productListReducer,
      productDetails: productDetailsReducer,
      cart: cartReducer, 
+     productUpdate: productUpdateReducer,
         userLogin: userLoginReducer,
         userRegister: userRegisterReducer,
           orderCreate: orderCreateReducer,
+          userUpdateProfile:userUpdateProfileReducer,
+          userList: userListReducer,
+          userDelete: userDeleteReducer,
           orderDetails: orderDetailsReducer,
-          orderPay:orderPayReducer
+           userDetails: userDetailsReducer,
+           userUpdate:userUpdateReducer,
+          orderPay:orderPayReducer,
+          
 });
 const cartItemFromStorage = localStorage.getItem('cartItems')? JSON.parse(localStorage.getItem('cartItems')) : [];
 const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;
